@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>长征知识问卷测验</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/questionnaire.css">
+</head>
+<body>
+
+  <!-- 顶部导航 -->
+  <div class="top-bar">
+    <a href="museum.html" class="back-link">&larr; 返回展馆</a>
+    <span class="title">长征知识问卷测验</span>
+    <span></span>
+  </div>
+
+  <!-- 问卷布局 -->
+  <div class="quiz-layout">
+
+    <!-- 侧边栏 -->
+    <aside class="quiz-sidebar" id="sidebar">
+      <h3>组卷设置</h3>
+
+      <div class="selection-group">
+        <h4>已选事件节点</h4>
+        <div id="selected-events"></div>
+      </div>
+
+      <div class="selection-group">
+        <h4>已查看人物</h4>
+        <div id="selected-persons"></div>
+      </div>
+
+      <div class="selection-group">
+        <h4>已浏览地点</h4>
+        <div id="selected-places"></div>
+      </div>
+
+      <div class="question-count">
+        <label for="quiz-count">题目数量</label>
+        <select id="quiz-count">
+          <option value="5">5 题</option>
+          <option value="10" selected>10 题</option>
+          <option value="15">15 题</option>
+          <option value="20">20 题</option>
+        </select>
+      </div>
+
+      <div class="match-info" id="match-info"></div>
+
+      <button class="btn-generate" id="btn-generate" onclick="startQuiz()">生成问卷</button>
+      <button class="btn-generate" id="btn-retry" style="display:none;background:var(--color-bg);border:1px solid var(--color-gold);color:var(--color-gold)" onclick="resetQuiz()">重新组卷</button>
+    </aside>
+
+    <!-- 主区域 -->
+    <main class="quiz-main" id="quiz-main">
+      <!-- 欢迎状态 -->
+      <div class="quiz-welcome" id="quiz-welcome">
+        <div class="welcome-icon">&#9997;</div>
+        <h2>准备开始测验</h2>
+        <p id="welcome-text">系统将根据你在展馆中浏览的事件节点和人物，智能匹配相关题目，生成个性化问卷。</p>
+        <p style="margin-top:12px;font-size:14px;color:var(--color-text-dim)">点击左侧"生成个性化问卷"按钮开始</p>
+      </div>
+
+      <!-- 题目区域 -->
+      <div class="hidden" id="quiz-questions"></div>
+
+      <!-- 结果区域 -->
+      <div class="hidden" id="quiz-result"></div>
+    </main>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/quiz-data.js"></script>
+  <script src="js/questionnaire.js"></script>
+</body>
+</html>
